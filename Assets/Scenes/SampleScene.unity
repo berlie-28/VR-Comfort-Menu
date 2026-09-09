@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 448986704}
   - component: {fileID: 448986703}
   - component: {fileID: 448986702}
+  - component: {fileID: 448986707}
   m_Layer: 5
   m_Name: ComfortMenu
   m_TagString: Untagged
@@ -662,6 +663,7 @@ MonoBehaviour:
   leftHand: {fileID: 2045601575}
   rightHand: {fileID: 118356178}
   moveProvider: {fileID: 977273850}
+  teleportProvider: {fileID: 0}
   adaptiveVignette: {fileID: 2082955327}
 --- !u!114 &448986703
 MonoBehaviour:
@@ -747,6 +749,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &448986707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448986701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ae2b9ff017148c5bb47166ff88e465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuToggle
+  panel: {fileID: 1437941236}
 --- !u!1 &589696185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,9 +2516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AdaptiveVignette
   xrOrigin: {fileID: 1912717546}
   vignetteImage: {fileID: 2082955325}
-  maxAlpha: 0.6
-  turnFactor: 0.01
-  moveFactor: 0.12
+  maxAlpha: 0.7
+  turnFactor: 0.014
+  moveFactor: 0.16
   easeIn: 5
   easeOut: 2.5
 --- !u!1 &2143359946

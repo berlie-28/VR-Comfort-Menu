@@ -8,9 +8,9 @@ public class AdaptiveVignette : MonoBehaviour
     public Image vignetteImage;
 
     [Header("Ayarlar")]
-    public float maxAlpha = 0.6f;
-    public float turnFactor = 0.01f;   // dönüş hızının etkisi
-    public float moveFactor = 0.12f;   // yürüme hızının etkisi
+    public float maxAlpha = 0.7f;
+    public float turnFactor = 0.014f;   // dönüş hızının etkisi
+    public float moveFactor = 0.16f;    // yürüme hızının etkisi
     public float easeIn = 5f;          // koyulaşma hızı
     public float easeOut = 2.5f;       // açılma hızı
 
