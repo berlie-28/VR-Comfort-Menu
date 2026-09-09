@@ -17,7 +17,7 @@ public class ComfortMenu : MonoBehaviour
     public ControllerInputActionManager leftHand;
     public ControllerInputActionManager rightHand;
     public ContinuousMoveProvider moveProvider;
-    public Image vignetteImage;
+    public AdaptiveVignette adaptiveVignette;   // dönerken/yürürken vinyeti ayarlayan script
 
     void Start()
     {
@@ -55,9 +55,7 @@ public class ComfortMenu : MonoBehaviour
 
     void SetVignette(bool on)
     {
-        // alpha 0.55 = hafif kararma, 0 = görünmez
-        if (vignetteImage != null)
-            vignetteImage.color = new Color(0f, 0f, 0f, on ? 0.55f : 0f);
+        if (adaptiveVignette != null) adaptiveVignette.enabled = on;
         PlayerPrefs.SetInt("vignette", on ? 1 : 0);
     }
 

@@ -662,7 +662,7 @@ MonoBehaviour:
   leftHand: {fileID: 2045601575}
   rightHand: {fileID: 118356178}
   moveProvider: {fileID: 977273850}
-  vignetteImage: {fileID: 2082955325}
+  adaptiveVignette: {fileID: 2082955327}
 --- !u!114 &448986703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,6 +2256,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796579438}
   m_CullTransparentMesh: 1
+--- !u!4 &1912717546 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 977273847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1963962611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -2417,6 +2422,7 @@ GameObject:
   - component: {fileID: 2082955324}
   - component: {fileID: 2082955326}
   - component: {fileID: 2082955325}
+  - component: {fileID: 2082955327}
   m_Layer: 5
   m_Name: VignetteImage
   m_TagString: Untagged
@@ -2481,6 +2487,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082955323}
   m_CullTransparentMesh: 1
+--- !u!114 &2082955327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082955323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8999022d7c94bed8b5040c68779cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AdaptiveVignette
+  xrOrigin: {fileID: 1912717546}
+  vignetteImage: {fileID: 2082955325}
+  maxAlpha: 0.6
+  turnFactor: 0.01
+  moveFactor: 0.12
+  easeIn: 5
+  easeOut: 2.5
 --- !u!1 &2143359946
 GameObject:
   m_ObjectHideFlags: 0
