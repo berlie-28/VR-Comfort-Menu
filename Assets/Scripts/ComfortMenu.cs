@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 // menüdeki ayarları oyuna bağlayan script, seçimler PlayerPrefs'e kaydediliyor
@@ -17,6 +18,7 @@ public class ComfortMenu : MonoBehaviour
     public ControllerInputActionManager leftHand;
     public ControllerInputActionManager rightHand;
     public ContinuousMoveProvider moveProvider;
+    public TeleportationProvider teleportProvider;
     public AdaptiveVignette adaptiveVignette;   // dönerken/yürürken vinyeti ayarlayan script
 
     void Start()
@@ -38,10 +40,11 @@ public class ComfortMenu : MonoBehaviour
         SetSpeed(speedSlider.value);
     }
 
-    // sol kol: teleport açıksa ışınlanır, kapalıysa yürür
+    // teleport açıksa ışınlanma açık ve yürüme kapalı, kapalıysa tam tersi
     void SetMovement(bool teleport)
     {
         if (leftHand != null) leftHand.smoothMotionEnabled = !teleport;
+        if (teleportProvider != null) teleportProvider.enabled = teleport;
         PlayerPrefs.SetInt("teleport", teleport ? 1 : 0);
     }
 
