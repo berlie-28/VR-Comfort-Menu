@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// XR Origin ne kadar hızlı dönüyor/hareket ediyorsa vinyeti o kadar koyulaştırır, durunca açılır
+// vignette gets darker the faster you move and turn, fades out when still
 public class AdaptiveVignette : MonoBehaviour
 {
-    public Transform xrOrigin;        // hareketi ölçtüğümüz obje
+    public Transform xrOrigin;        // what we measure movement on
     public Image vignetteImage;
 
-    [Header("Ayarlar")]
+    [Header("Settings")]
     public float maxAlpha = 0.7f;
-    public float turnFactor = 0.014f;   // dönüş hızının etkisi
-    public float moveFactor = 0.16f;    // yürüme hızının etkisi
-    public float easeIn = 5f;          // koyulaşma hızı
-    public float easeOut = 2.5f;       // açılma hızı
+    public float turnFactor = 0.014f;   // how much turn speed affects it
+    public float moveFactor = 0.16f;    // how much walk speed affects it
+    public float easeIn = 5f;          // how fast it darkens
+    public float easeOut = 2.5f;       // how fast it fades
 
     Vector3 lastPos;
     Quaternion lastRot;
@@ -20,7 +20,7 @@ public class AdaptiveVignette : MonoBehaviour
 
     void OnEnable()
     {
-        // referans anını sıfırla ki ilk karede yanlış hız çıkmasın
+        // reset so the first frame doesn't get a wrong speed
         if (xrOrigin != null)
         {
             lastPos = xrOrigin.position;
@@ -30,7 +30,7 @@ public class AdaptiveVignette : MonoBehaviour
 
     void OnDisable()
     {
-        // kapatılınca vinyet gitsin
+        // turn off vignette
         alpha = 0f;
         Apply();
     }
@@ -46,7 +46,7 @@ public class AdaptiveVignette : MonoBehaviour
 
         float target = Mathf.Clamp01(turnSpeed * turnFactor + moveSpeed * moveFactor) * maxAlpha;
 
-        // koyulaşırken hızlı, açılırken yavaş
+        // darkens fast, fades slowly
         float speed = (target > alpha) ? easeIn : easeOut;
         alpha = Mathf.MoveTowards(alpha, target, speed * Time.deltaTime);
 

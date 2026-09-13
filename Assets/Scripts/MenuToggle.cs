@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// M tuşuyla menüyü açar/kapatır, açılırken kafanın baktığı yöne göre önüne koyar
+// M opens and closes the menu, places it in front of you when opened
 public class MenuToggle : MonoBehaviour
 {
-    public GameObject panel;      // açılıp kapanan obje (MenuCanvas)
-    public Transform head;        // Main Camera, önüne koymak için lazım
+    public GameObject panel;      // opens and closes this (MenuCanvas)
+    public Transform head;        // Main Camera, used to place the menu
     public float distance = 1.4f;
 
     void Update()
@@ -22,7 +22,7 @@ public class MenuToggle : MonoBehaviour
     {
         if (head == null) return;
 
-        // sadece yatay yönü al, menü yatık değil dik dursun
+        // horizontal only, so the menu stays upright
         Vector3 forward = head.forward;
         forward.y = 0f;
         forward.Normalize();

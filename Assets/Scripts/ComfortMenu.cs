@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
-// menüdeki ayarları oyuna bağlayan script, seçimler PlayerPrefs'e kaydediliyor
+// connects the menu to the game, saves choices with PlayerPrefs
 public class ComfortMenu : MonoBehaviour
 {
     [Header("UI")]
@@ -13,17 +13,17 @@ public class ComfortMenu : MonoBehaviour
     public Toggle vignetteToggle;
     public Slider speedSlider;
 
-    [Header("Sahnedeki hazır componentler")]
-    // bu ikisi starter assets'ten, kolların ne yaptığını yönetiyor
+    [Header("Ready components in the scene")]
+    // from Starter Assets, controls what each hand does
     public ControllerInputActionManager leftHand;
     public ControllerInputActionManager rightHand;
     public ContinuousMoveProvider moveProvider;
     public TeleportationProvider teleportProvider;
-    public AdaptiveVignette adaptiveVignette;   // dönerken/yürürken vinyeti ayarlayan script
+    public AdaptiveVignette adaptiveVignette;   // adjusts the vignette while turning and walking
 
     void Start()
     {
-        // kayıtlı ayarları oku
+        // load saved settings
         teleportToggle.isOn = PlayerPrefs.GetInt("teleport", 0) == 1;
         snapTurnToggle.isOn = PlayerPrefs.GetInt("snapTurn", 1) == 1;
         vignetteToggle.isOn = PlayerPrefs.GetInt("vignette", 1) == 1;
@@ -40,7 +40,7 @@ public class ComfortMenu : MonoBehaviour
         SetSpeed(speedSlider.value);
     }
 
-    // teleport açıksa ışınlanma açık ve yürüme kapalı, kapalıysa tam tersi
+    // teleport on = teleport, off = walk
     void SetMovement(bool teleport)
     {
         if (leftHand != null) leftHand.smoothMotionEnabled = !teleport;
@@ -48,7 +48,7 @@ public class ComfortMenu : MonoBehaviour
         PlayerPrefs.SetInt("teleport", teleport ? 1 : 0);
     }
 
-    // snap açıksa kademeli dönüş, kapalıysa akıcı. sol kola da veriyoruz
+    // snap on = step turn, off = smooth turn. left hand gets it too
     void SetTurn(bool snap)
     {
         if (rightHand != null) rightHand.smoothTurnEnabled = !snap;
