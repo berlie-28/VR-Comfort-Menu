@@ -8,6 +8,8 @@ Unity'de yaptığım bir VR konfor ayarları sistemi. Amaç sadece aç/kapa dü�
 
 [VR Escape Room](https://github.com/berlie-28/VR-Escape-Room)'dan sonraki ikinci portföy projem. Amacım sadece bir ayar menüsü yapmak değildi. VR'da insanların çoğu mide bulanması yaşıyor, buna "vection" deniyor: göz hareketi görüyor ama iç kulak hiçbir şey hissetmiyor, ikisi uyuşmayınca beyin bulanıyor. Ben de buna gerçekten çözüm olan küçük bir sistem kurmak istedim, farkı hissedilebilsin diye küçük bir demo koridoru da ekledim.
 
+Bu projede script yazımında ve XR Interaction Toolkit'in bazı iç mantığını çözmede yapay zekadan yardım aldım. Unity Editor işleri, testler ve tasarım kararları bana ait.
+
 ## Özellikler
 
 - Hareket şekli: teleport ya da sürekli yürüme, oyun içinde değiştirilebiliyor (ikisi asla aynı anda açık olmuyor)
@@ -45,10 +47,6 @@ Gerçek XR Interaction Toolkit + OpenXR kurulumu projede hazır, sadece test ede
 - OpenXR
 - Unity Input System
 - TextMeshPro
-
-## Yapay zeka kullanımı hakkında not
-
-Script yazımında ve XR Interaction Toolkit'in kendi başıma çözemeyeceğim bazı iç mantığına inmekte yapay zekadan yardım aldım. Unity Editor tarafı ise çoğunlukla bendim: component ekleme, referans bağlama, obje yerleştirme bana aitti. Her özelliği Play modunda kendim test ettim, bir şey çalışmayınca ne gördüğümü anlatıp geri bildirim verdim. Projenin kapsamı ve bu ayarların neden seçildiği de tek seferlik bir öneriden değil, karşılıklı konuşmadan çıktı.
 
 ## Karşılaştığım bir sorun
 
